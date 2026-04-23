@@ -3,261 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Revenue Machines – Build automated income streams with AI. Productized services, digital products, SaaS micro-tools, and passive revenue systems for solopreneurs.">
-<title>Revenue Machines | Build Automated Income Streams with AI</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Revenue Machines Dashboard — Saikou.tech</title>
 <style>
-  :root{--bg:#050507;--surface:#0f0f13;--surface2:#16161e;--border:rgba(255,255,255,0.08);--primary:#bb86fc;--secondary:#03dac6;--accent:#f471b0;--gold:#ffab00;--success:#00e676;--text:#e2e2e7;--text2:#71717a;--glass:rgba(15,15,19,0.75);}
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.6;overflow-x:hidden;}
-  .bg-grid{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(circle at 50% 35%,black 25%,transparent 70%);opacity:0.35;}
-  nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 8%;background:var(--glass);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-  .logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#000;font-size:1rem;}
-  .logo-text{font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-0.5px;}
-  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--accent));color:#000;padding:0.55rem 1.4rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:0.9rem;transition:0.3s;}
-  .nav-cta:hover{opacity:0.85;transform:translateY(-1px);}
-  /* HERO */
-  .hero{padding:8rem 8% 5rem;text-align:center;max-width:1100px;margin:0 auto;}
-  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,171,0,0.12);color:var(--gold);padding:8px 18px;border-radius:100px;font-size:0.8rem;font-weight:700;border:1px solid rgba(255,171,0,0.3);margin-bottom:1.8rem;}
-  h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:800;line-height:1.1;color:#fff;margin-bottom:1.5rem;}
-  h1 .grad{background:linear-gradient(135deg,var(--gold),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .hero-sub{font-size:1.2rem;color:var(--text2);max-width:730px;margin:0 auto 3rem;}
-  .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:0.9rem 2rem;border-radius:12px;font-weight:700;text-decoration:none;transition:0.3s;font-size:1rem;cursor:pointer;border:none;}
-  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--accent));color:#000;}
-  .btn-outline{background:transparent;color:#fff;border:1px solid var(--border);}
-  .btn:hover{transform:translateY(-2px);opacity:0.9;}
-  /* INCOME COUNTER */
-  .counter-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;padding:3rem 8%;max-width:1200px;margin:0 auto;}
-  .counter-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;text-align:center;}
-  .counter-val{font-size:2.2rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#fff;}
-  .counter-val span{color:var(--gold);}
-  .counter-lbl{color:var(--text2);font-size:0.85rem;margin-top:0.4rem;}
-  /* MACHINES GRID */
-  .machines-section{padding:5rem 8%;max-width:1200px;margin:0 auto;}
-  .section-label{color:var(--gold);font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;}
-  .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#fff;margin-bottom:1rem;}
-  .section-sub{color:var(--text2);max-width:620px;margin-bottom:3rem;}
-  .machines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-  .machine-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:0.4s;position:relative;overflow:hidden;}
-  .machine-card:hover{transform:translateY(-5px);border-color:rgba(255,171,0,0.3);box-shadow:0 15px 50px rgba(0,0,0,0.4);}
-  .machine-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:6px;font-size:0.72rem;font-weight:700;margin-bottom:1rem;}
-  .badge-passive{background:rgba(0,230,118,0.12);color:var(--success);}
-  .badge-active{background:rgba(255,171,0,0.12);color:var(--gold);}
-  .badge-saas{background:rgba(187,134,252,0.12);color:var(--primary);}
-  .machine-icon{font-size:2rem;margin-bottom:1rem;}
-  .machine-card h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.6rem;}
-  .machine-card p{color:var(--text2);font-size:0.9rem;margin-bottom:1.2rem;}
-  .revenue-tag{display:flex;align-items:center;gap:8px;background:var(--surface2);border-radius:8px;padding:0.6rem 1rem;font-size:0.85rem;}
-  .revenue-tag strong{color:var(--gold);font-family:'JetBrains Mono',monospace;}
-  /* BLUEPRINT SECTION */
-  .blueprint{padding:5rem 8%;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .blueprint-inner{max-width:1100px;margin:0 auto;}
-  .blueprint-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;}
-  .blueprint-steps{display:flex;flex-direction:column;gap:1.5rem;}
-  .bp-step{display:flex;gap:1.2rem;align-items:flex-start;}
-  .bp-num{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--accent));color:#000;font-weight:800;font-size:0.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'JetBrains Mono',monospace;}
-  .bp-step h4{color:#fff;font-weight:700;margin-bottom:0.3rem;}
-  .bp-step p{color:var(--text2);font-size:0.9rem;}
-  .blueprint-visual{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2rem;}
-  .revenue-flow{display:flex;flex-direction:column;gap:1rem;}
-  .flow-item{display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border-radius:12px;padding:1rem 1.2rem;}
-  .flow-source{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--text);}
-  .flow-source i{color:var(--gold);width:18px;text-align:center;}
-  .flow-amount{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--success);font-size:0.95rem;}
-  .flow-divider{text-align:center;color:var(--text2);font-size:0.8rem;font-family:'JetBrains Mono',monospace;padding:0.3rem 0;}
-  .flow-total{background:linear-gradient(135deg,rgba(255,171,0,0.15),rgba(244,113,176,0.15));border:1px solid rgba(255,171,0,0.3);}
-  .flow-total .flow-source{color:#fff;font-weight:700;}
-  .flow-total .flow-amount{font-size:1.1rem;color:var(--gold);}
-  /* PRICING */
-  .pricing-section{padding:5rem 8%;max-width:1200px;margin:0 auto;}
-  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;}
-  .price-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:0.35s;position:relative;}
-  .price-card.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(255,171,0,0.12);}
-  .price-card:hover{transform:translateY(-4px);}
-  .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--accent));color:#000;padding:4px 16px;border-radius:100px;font-size:0.75rem;font-weight:800;white-space:nowrap;}
-  .plan-name{font-size:0.85rem;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.75rem;}
-  .price-amount{font-size:2.8rem;font-weight:800;color:#fff;font-family:'JetBrains Mono',monospace;margin-bottom:0.5rem;}
-  .price-amount sup{font-size:1.1rem;}
-  .price-amount sub{font-size:0.9rem;color:var(--text2);}
-  .price-desc{color:var(--text2);font-size:0.9rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
-  .feat-list{list-style:none;margin-bottom:2rem;}
-  .feat-list li{display:flex;align-items:center;gap:10px;padding:0.5rem 0;color:var(--text);font-size:0.9rem;border-bottom:1px solid var(--border);}
-  .feat-list li:last-child{border-bottom:none;}
-  .feat-list i{color:var(--success);font-size:0.75rem;}
-  .btn-full{width:100%;justify-content:center;}
-  footer{padding:3rem 8% 2rem;border-top:1px solid var(--border);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-  footer p{color:var(--text2);font-size:0.85rem;}
-  .footer-mono{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);}
-  @media(max-width:900px){.blueprint-grid{grid-template-columns:1fr;}.hero{padding:5rem 5% 3rem;}.machines-section,.pricing-section{padding:3rem 5%;}}
+  :root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a42;--accent:#00e676;--accent2:#00bcd4;--warn:#ffab00;--error:#ff5252;--text:#e8e8f0;--text2:#9090b0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .logo{display:flex;align-items:center;gap:14px;}
+  .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .logo-text{font-size:18px;font-weight:800;}
+  .logo-sub{font-size:11px;color:var(--text2);letter-spacing:2px;text-transform:uppercase;}
+  .back-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;text-decoration:none;transition:all 0.2s;}
+  .back-btn:hover{color:var(--text);border-color:var(--accent);}
+  main{padding:40px 32px;max-width:1400px;margin:0 auto;}
+  .hero{margin-bottom:40px;}
+  .hero h1{font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+  .hero p{color:var(--text2);font-size:15px;}
+  .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;}
+  .stat-n{font-size:28px;font-weight:800;color:var(--accent);}
+  .stat-l{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+  .section-title{font-size:13px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:40px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;position:relative;overflow:hidden;}
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);}
+  .card-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .card-icon{font-size:32px;}
+  .card-name{font-size:17px;font-weight:700;}
+  .card-status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;margin-left:auto;}
+  .status-live{background:rgba(0,230,118,0.15);color:var(--accent);}
+  .status-build{background:rgba(255,171,0,0.15);color:var(--warn);}
+  .card-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px;}
+  .metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+  .metric{background:var(--surface2);border-radius:8px;padding:10px;text-align:center;}
+  .metric-v{font-size:18px;font-weight:700;color:var(--accent);}
+  .metric-l{font-size:10px;color:var(--text2);margin-top:2px;}
+  .card-links{display:flex;gap:8px;flex-wrap:wrap;}
+  .btn{padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;border:1px solid var(--border);transition:all 0.2s;}
+  .btn-primary{background:var(--accent);color:#000;border-color:var(--accent);}
+  .btn-secondary{background:transparent;color:var(--text2);}
+  .btn:hover{opacity:0.85;}
+  .funnel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:40px;}
+  .funnel h3{font-size:15px;font-weight:700;margin-bottom:20px;}
+  .funnel-step{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .funnel-step:last-child{border-bottom:none;}
+  .step-num{width:32px;height:32px;background:var(--surface2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0;}
+  .step-info{flex:1;}
+  .step-name{font-size:14px;font-weight:600;}
+  .step-desc{font-size:12px;color:var(--text2);}
+  .step-val{font-size:18px;font-weight:700;color:var(--accent);}
+  @media(max-width:768px){.stats-bar{grid-template-columns:1fr 1fr;}.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<div class="bg-grid"></div>
-<nav>
-  <a href="#" class="logo">
-    <div class="logo-icon"><i class="fas fa-coins"></i></div>
-    <span class="logo-text">Revenue Machines</span>
-  </a>
-  <a href="#pricing" class="nav-cta"><i class="fas fa-rocket"></i> Start Building</a>
-</nav>
-
-<header class="hero">
-  <div class="badge"><i class="fas fa-coins"></i> AI-POWERED PASSIVE INCOME SYSTEMS</div>
-  <h1>Build income streams that run <span class="grad">while you sleep.</span></h1>
-  <p class="hero-sub">Revenue Machines gives solopreneurs and small teams the blueprints, tools, and AI automation to build multiple scalable income streams — productized services, digital products, SaaS micro-tools, and more.</p>
-  <div class="hero-actions">
-    <a href="#machines" class="btn btn-gold"><i class="fas fa-bolt"></i> See the Machines</a>
-    <a href="#blueprint" class="btn btn-outline"><i class="fas fa-map"></i> View Blueprint</a>
+<header>
+  <div class="logo">
+    <div class="logo-icon">💰</div>
+    <div>
+      <div class="logo-text">Revenue Machines</div>
+      <div class="logo-sub">Automated Income Streams</div>
+    </div>
   </div>
+  <a href="https://superfastsimon.github.io/saikou-platform-dashboard/" class="back-btn">← Platform Hub</a>
 </header>
-
-<div class="counter-strip">
-  <div class="counter-card"><div class="counter-val"><span>$</span>4.2M</div><div class="counter-lbl">Revenue Generated by Users</div></div>
-  <div class="counter-card"><div class="counter-val"><span>18</span></div><div class="counter-lbl">Revenue Machine Templates</div></div>
-  <div class="counter-card"><div class="counter-val"><span>3</span>hrs</div><div class="counter-lbl">Avg Setup Time Per Machine</div></div>
-  <div class="counter-card"><div class="counter-val"><span>2,400</span>+</div><div class="counter-lbl">Solopreneurs Building</div></div>
-</div>
-
-<section class="machines-section" id="machines">
-  <div class="section-label">The Machines</div>
-  <h2 class="section-title">Pick your revenue model. We handle the rest.</h2>
-  <p class="section-sub">Every machine comes with a full build blueprint, AI toolchain, and launch checklist. Go from zero to live in a weekend.</p>
-  <div class="machines-grid">
-    <div class="machine-card">
-      <div class="machine-badge badge-passive"><i class="fas fa-circle-dot"></i> PASSIVE</div>
-      <div class="machine-icon">📄</div>
-      <h3>AI Report Generator</h3>
-      <p>Sell automated PDF reports on any niche topic — market analysis, SEO audits, financial summaries. Fully generated by AI, delivered instantly.</p>
-      <div class="revenue-tag"><strong>$5–15</strong> per report · avg 200 sales/month</div>
-    </div>
-    <div class="machine-card">
-      <div class="machine-badge badge-saas"><i class="fas fa-circle-dot"></i> MICRO-SAAS</div>
-      <div class="machine-icon">🔧</div>
-      <h3>API Credit Reseller</h3>
-      <p>Bundle and resell AI API credits to non-technical users via a clean dashboard. Earn 30–60% margin on every credit pack sold.</p>
-      <div class="revenue-tag"><strong>$500–3K</strong> MRR · low overhead</div>
-    </div>
-    <div class="machine-card">
-      <div class="machine-badge badge-passive"><i class="fas fa-circle-dot"></i> PASSIVE</div>
-      <div class="machine-icon">🎨</div>
-      <h3>Social Asset Generator</h3>
-      <p>Auto-generate branded social media asset packs — thumbnails, banners, carousel slides — for content creators and SMBs on demand.</p>
-      <div class="revenue-tag"><strong>$29–99</strong> per pack · fully automated</div>
-    </div>
-    <div class="machine-card">
-      <div class="machine-badge badge-active"><i class="fas fa-circle-dot"></i> SERVICE</div>
-      <div class="machine-icon">⚖️</div>
-      <h3>Legal Doc Generator</h3>
-      <p>Sell AI-generated legal document templates — NDAs, ToS, privacy policies — to small businesses. Stripe checkout, instant PDF delivery.</p>
-      <div class="revenue-tag"><strong>$5–15</strong> per doc · zero marginal cost</div>
-    </div>
-    <div class="machine-card">
-      <div class="machine-badge badge-saas"><i class="fas fa-circle-dot"></i> MICRO-SAAS</div>
-      <div class="machine-icon">📸</div>
-      <h3>AI Headshot Generator</h3>
-      <p>Professional AI headshots for $4.99 per set. Upload a selfie, get 10 polished LinkedIn-ready headshots. Fully automated pipeline.</p>
-      <div class="revenue-tag"><strong>$4.99</strong> per set · high volume potential</div>
-    </div>
-    <div class="machine-card">
-      <div class="machine-badge badge-passive"><i class="fas fa-circle-dot"></i> PASSIVE</div>
-      <div class="machine-icon">🤝</div>
-      <h3>Affiliate Factory</h3>
-      <p>Build AI-powered niche content sites that capture affiliate commissions 24/7. Automated content generation, SEO, and link management.</p>
-      <div class="revenue-tag"><strong>$200–2K</strong>/mo per site · scales infinitely</div>
-    </div>
+<main>
+  <div class="hero">
+    <h1>💰 Revenue Machines Dashboard</h1>
+    <p>Automated monetization systems running 24/7 — SaaS, ads, affiliate, and API revenue streams.</p>
   </div>
-</section>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-n" id="totalStreams">6</div><div class="stat-l">Revenue Streams</div></div>
+    <div class="stat"><div class="stat-n" id="liveStreams">4</div><div class="stat-l">Live</div></div>
+    <div class="stat"><div class="stat-n">€0</div><div class="stat-l">MRR Target</div></div>
+    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Scalability</div></div>
+  </div>
 
-<section class="blueprint" id="blueprint">
-  <div class="blueprint-inner">
-    <div class="section-label">The Blueprint</div>
-    <h2 class="section-title" style="color:#fff;">How to build a Revenue Machine</h2>
-    <div class="blueprint-grid">
-      <div class="blueprint-steps">
-        <div class="bp-step">
-          <div class="bp-num">01</div>
-          <div><h4>Pick Your Machine</h4><p>Choose a revenue model that fits your skills, time, and starting budget. Every machine has clear prerequisites.</p></div>
+  <div class="section-title">💼 Active Revenue Streams</div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">📄</div>
+        <div>
+          <div class="card-name">CV Writer SaaS</div>
         </div>
-        <div class="bp-step">
-          <div class="bp-num">02</div>
-          <div><h4>Follow the Blueprint</h4><p>Step-by-step build guide with exact tools, prompts, and configurations. No guesswork — just execute.</p></div>
-        </div>
-        <div class="bp-step">
-          <div class="bp-num">03</div>
-          <div><h4>Connect the AI Toolchain</h4><p>We provide pre-built AI integrations for each machine. Connect once, automate forever.</p></div>
-        </div>
-        <div class="bp-step">
-          <div class="bp-num">04</div>
-          <div><h4>Launch & Iterate</h4><p>Go live with your first machine in a weekend. Track revenue, optimize conversion, add more machines.</p></div>
-        </div>
+        <span class="card-status status-live">LIVE</span>
       </div>
-      <div class="blueprint-visual">
-        <div style="font-size:0.8rem;color:var(--text2);margin-bottom:1rem;font-family:'JetBrains Mono',monospace;">// Sample Monthly Revenue Stack</div>
-        <div class="revenue-flow">
-          <div class="flow-item"><div class="flow-source"><i class="fas fa-file-pdf"></i> Report Generator</div><div class="flow-amount">+$1,200</div></div>
-          <div class="flow-item"><div class="flow-source"><i class="fas fa-microchip"></i> API Credit Reseller</div><div class="flow-amount">+$980</div></div>
-          <div class="flow-item"><div class="flow-source"><i class="fas fa-image"></i> Asset Generator</div><div class="flow-amount">+$640</div></div>
-          <div class="flow-item"><div class="flow-source"><i class="fas fa-link"></i> Affiliate Sites (3x)</div><div class="flow-amount">+$720</div></div>
-          <div class="flow-divider">────────────────────</div>
-          <div class="flow-item flow-total"><div class="flow-source"><i class="fas fa-coins"></i> Total MRR</div><div class="flow-amount">$3,540</div></div>
-        </div>
+      <div class="card-desc">AI-powered CV generator. Users input job details, AI creates tailored CVs. One-time purchase or subscription model.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v">€9.99</div><div class="metric-l">per CV</div></div>
+        <div class="metric"><div class="metric-v">€29</div><div class="metric-l">per month</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary">View Dashboard</a>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="pricing-section" id="pricing">
-  <div class="section-label">Access</div>
-  <h2 class="section-title">One membership. All machines.</h2>
-  <p class="section-sub">Every plan includes full build blueprints, AI toolchain access, and the Revenue Machines community.</p>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="plan-name">Starter</div>
-      <div class="price-amount"><sup>$</sup>0<sub>/mo</sub></div>
-      <div class="price-desc">Explore 3 machines for free</div>
-      <ul class="feat-list">
-        <li><i class="fas fa-check"></i> 3 machine blueprints</li>
-        <li><i class="fas fa-check"></i> Community access</li>
-        <li><i class="fas fa-check"></i> Basic AI toolchain</li>
-      </ul>
-      <a href="#" class="btn btn-outline btn-full">Start Free</a>
+    <div class="card" style="--accent:#6c63ff;">
+      <div class="card-header">
+        <div class="card-icon">🖼</div>
+        <div>
+          <div class="card-name">AI Headshot Generator</div>
+        </div>
+        <span class="card-status status-live">LIVE</span>
+      </div>
+      <div class="card-desc">Professional headshots via AI. Upload a selfie, receive polished LinkedIn-ready portraits. High-margin digital product.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v" style="color:#6c63ff;">€14.99</div><div class="metric-l">per pack</div></div>
+        <div class="metric"><div class="metric-v" style="color:#6c63ff;">€49</div><div class="metric-l">unlimited</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary" style="background:#6c63ff;border-color:#6c63ff;">View Dashboard</a>
+      </div>
     </div>
-    <div class="price-card featured">
-      <div class="price-badge">BEST VALUE</div>
-      <div class="plan-name">Builder</div>
-      <div class="price-amount"><sup>$</sup>47<sub>/mo</sub></div>
-      <div class="price-desc">Full access to all 18 machines</div>
-      <ul class="feat-list">
-        <li><i class="fas fa-check"></i> All 18 machine blueprints</li>
-        <li><i class="fas fa-check"></i> Full AI toolchain</li>
-        <li><i class="fas fa-check"></i> Launch checklists</li>
-        <li><i class="fas fa-check"></i> Revenue tracking dashboard</li>
-        <li><i class="fas fa-check"></i> Priority community support</li>
-        <li><i class="fas fa-check"></i> Monthly new machine drops</li>
-      </ul>
-      <a href="#" class="btn btn-gold btn-full">Start Building</a>
+
+    <div class="card" style="--accent:#ff6b6b;">
+      <div class="card-header">
+        <div class="card-icon">📊</div>
+        <div>
+          <div class="card-name">AI Premium Reports</div>
+        </div>
+        <span class="card-status status-live">LIVE</span>
+      </div>
+      <div class="card-desc">Auto-generated niche market reports. SEO traffic + AI content = passive income. Sold as digital downloads.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v" style="color:#ff6b6b;">€19</div><div class="metric-l">per report</div></div>
+        <div class="metric"><div class="metric-v" style="color:#ff6b6b;">€97</div><div class="metric-l">bundle</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary" style="background:#ff6b6b;border-color:#ff6b6b;">View Dashboard</a>
+      </div>
     </div>
-    <div class="price-card">
-      <div class="plan-name">Accelerator</div>
-      <div class="price-amount"><sup>$</sup>197<sub>/mo</sub></div>
-      <div class="price-desc">Done-with-you machine builds</div>
-      <ul class="feat-list">
-        <li><i class="fas fa-check"></i> Everything in Builder</li>
-        <li><i class="fas fa-check"></i> Monthly 1:1 strategy call</li>
-        <li><i class="fas fa-check"></i> Custom machine build support</li>
-        <li><i class="fas fa-check"></i> Revenue audit & optimization</li>
-      </ul>
-      <a href="#" class="btn btn-outline btn-full">Apply Now</a>
+
+    <div class="card" style="--accent:#00bcd4;">
+      <div class="card-header">
+        <div class="card-icon">🔌</div>
+        <div>
+          <div class="card-name">API Credit Hub</div>
+        </div>
+        <span class="card-status status-build">BUILDING</span>
+      </div>
+      <div class="card-desc">Resell AI API credits at markup. Bundle OpenAI, Anthropic, and image model credits into developer-friendly packages.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v" style="color:#00bcd4;">30%</div><div class="metric-l">margin</div></div>
+        <div class="metric"><div class="metric-v" style="color:#00bcd4;">€99</div><div class="metric-l">starter pack</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary" style="background:#00bcd4;border-color:#00bcd4;">View Dashboard</a>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ffab00;">
+      <div class="card-header">
+        <div class="card-icon">⚖️</div>
+        <div>
+          <div class="card-name">Legal Doc Generator</div>
+        </div>
+        <span class="card-status status-build">BUILDING</span>
+      </div>
+      <div class="card-desc">AI-generated legal templates: NDAs, terms of service, privacy policies. High-value niche with low competition.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v" style="color:#ffab00;">€24</div><div class="metric-l">per doc</div></div>
+        <div class="metric"><div class="metric-v" style="color:#ffab00;">€79</div><div class="metric-l">monthly</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary" style="background:#ffab00;border-color:#ffab00;color:#000;">View Dashboard</a>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:#ff9800;">
+      <div class="card-header">
+        <div class="card-icon">🍌</div>
+        <div>
+          <div class="card-name">Nano Banana</div>
+        </div>
+        <span class="card-status status-live">LIVE</span>
+      </div>
+      <div class="card-desc">Micro-SaaS suite of tiny but useful AI tools. Low price point, high volume. Each tool is a mini revenue machine.</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-v" style="color:#ff9800;">€2.99</div><div class="metric-l">per tool</div></div>
+        <div class="metric"><div class="metric-v" style="color:#ff9800;">€12</div><div class="metric-l">all tools</div></div>
+      </div>
+      <div class="card-links">
+        <a href="https://superfastsimon.github.io/vending-machines-dashboard/" class="btn btn-primary" style="background:#ff9800;border-color:#ff9800;color:#000;">View Dashboard</a>
+      </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <p>© 2026 Revenue Machines. Build income. Build freedom.</p>
-  <span class="footer-mono">POWERED BY SAIKOU TECH</span>
-</footer>
+  <div class="section-title">🔄 Automated Revenue Funnel</div>
+  <div class="funnel">
+    <h3>Traffic → Conversion → Delivery → Retention</h3>
+    <div class="funnel-step">
+      <div class="step-num">1</div>
+      <div class="step-info"><div class="step-name">SEO Traffic Acquisition</div><div class="step-desc">AutoGPT generates long-tail SEO content daily → organic visitors</div></div>
+      <div class="step-val">∞</div>
+    </div>
+    <div class="funnel-step">
+      <div class="step-num">2</div>
+      <div class="step-info"><div class="step-name">Landing Page Conversion</div><div class="step-desc">AI-optimized copy, A/B tested headlines, instant social proof</div></div>
+      <div class="step-val">~3%</div>
+    </div>
+    <div class="funnel-step">
+      <div class="step-num">3</div>
+      <div class="step-info"><div class="step-name">Automated Product Delivery</div><div class="step-desc">Stripe payment → AI generates product → instant email delivery</div></div>
+      <div class="step-val">&lt;60s</div>
+    </div>
+    <div class="funnel-step">
+      <div class="step-num">4</div>
+      <div class="step-info"><div class="step-name">Upsell & Retention</div><div class="step-desc">Automated email sequence pushes bundles & subscriptions</div></div>
+      <div class="step-val">+40%</div>
+    </div>
+  </div>
+</main>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.stat-n').forEach(el => {
+      const v = el.textContent.trim();
+      if (!isNaN(v)) {
+        let i = 0, target = parseInt(v);
+        const t = setInterval(() => { i = Math.min(i + Math.ceil(target/20), target); el.textContent = i; if(i>=target) clearInterval(t); }, 50);
+      }
+    });
+  });
+</script>
 </body>
 </html>
